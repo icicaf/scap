@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>SCAP - Acceso al sistema</title>
+    <title>Error 404</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./template_acceso_sistema/bootstrap.min.css" rel="stylesheet">
@@ -33,18 +33,7 @@
   </head>
     
     <style type="text/css">
-
-        body { 
-                background-color: transparent; 
-                background: url("./template_acceso_sistema/fondo_login.svg");
-                background-color: #262F36; 
-                background-repeat: no-repeat;
-                background-position: center top;
-                background-attachment: fixed;
-                backgroudn-size: contain;
-                color: #34789c;
-        }
-
+        body { background-color: #262F36; }
         h2 { color: #fff; }
         
         label { color: #fff; }
@@ -78,20 +67,11 @@
 
   <body>
     <div class="container">
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Acceso al sistema</h2>
-        <label for="usuario" class="sr-only">Nombre de usuario</label>
-        <input type="text" id="inputUsuario" class="form-control" placeholder="Nombre de usuario" required="" autofocus="">
-        <label for="inputPassword" class="sr-only">Contraseña</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me">Recordar credenciales</label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
-      </form>
+      
+        <h2 class="form-signin-heading">Error 404</h2>
+       
       <div align="center"> 
-        <b color="white">®SCAP</b>
+        <b color="white">Scap</b>
       </div>
 
     </div> 
