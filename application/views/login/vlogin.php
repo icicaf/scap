@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -8,21 +8,21 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="icon" href="">
 
-    <title>SCAP - Acceso al sistema</title>
+    <title>SCAP</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./template_acceso_sistema/bootstrap.min.css" rel="stylesheet">
+    <link href="./public/template_acceso_sistema/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="./template_acceso_sistema/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="./public/template_acceso_sistema/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./template_acceso_sistema/signin.css" rel="stylesheet">
+    <link href="./public/template_acceso_sistema/signin.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="./public/template_acceso_sistema/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="./template_acceso_sistema/ie-emulation-modes-warning.js.descarga"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -36,13 +36,30 @@
 
         body { 
                 background-color: transparent; 
-                background: url("./template_acceso_sistema/fondo_login.svg");
+                background: url("./public/template_acceso_sistema/fondo_login.svg");
                 background-color: #262F36; 
                 background-repeat: no-repeat;
-                background-position: center top;
+                background-position: top center; 
                 background-attachment: fixed;
                 backgroudn-size: contain;
                 color: #34789c;
+        }
+
+        /* Ahora podemos cambiar solo la propiedad background-image */
+        @media (min-width: 280px) {
+            body {
+                background-position: center -100px;
+            }
+        }
+        @media (min-width: 768px) {
+            body {
+                background-position: center ;
+            }
+        }
+        @media (min-width: 1200px) {
+            body {
+                background-position: center;
+            }
         }
 
         h2 { color: #fff; }
@@ -57,13 +74,13 @@
 
         .btn-primary:hover {
             color: #fff;
-            background-color: #ffc107;
+            background-color: #347faa;
             border-color: #fff;
         }
 
         .btn-primary.focus, .btn-primary:focus {
             color: #fff;
-            background-color: #ffc107;
+            background-color: #347faa;
             border-color: #fff;
         }
 
@@ -73,17 +90,16 @@
             -webkit-box-shadow: inset 0 1px 1px rgba(#e9e266), 0 2 8px rgba(#e9e266);
             box-shadow: inset 0 1px 1px rgba(#e9e266), 0 2 8px rgba(#e9e266);
         }
-
     </style>
 
   <body>
     <div class="container">
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Acceso al sistema</h2>
+      <form class="form-signin" action="cautenticacion" method="post">
+        <h2 class="form-signin-heading">®SCAP Acceso</h2>
         <label for="usuario" class="sr-only">Nombre de usuario</label>
-        <input type="text" id="inputUsuario" class="form-control" placeholder="Nombre de usuario" required="" autofocus="">
+        <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Nombre de usuario" required="" autofocus="">
         <label for="inputPassword" class="sr-only">Contraseña</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
+        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required="">
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me">Recordar credenciales</label>
@@ -98,6 +114,6 @@
     <!-- /container -->
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./template_acceso_sistema/ie10-viewport-bug-workaround.js.descarga"></script>
+    <script src="./public/template_acceso_sistema/ie10-viewport-bug-workaround.js.descarga"></script>
 </body>
 </html>

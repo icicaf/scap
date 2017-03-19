@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -13,13 +13,13 @@
     <title>Error 404</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./template_acceso_sistema/bootstrap.min.css" rel="stylesheet">
+    <link href="./public/template_acceso_sistema/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="./template_acceso_sistema/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="./public/template_acceso_sistema/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./template_acceso_sistema/signin.css" rel="stylesheet">
+    <link href="./public/template_acceso_sistema/signin.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -33,7 +33,18 @@
   </head>
     
     <style type="text/css">
-        body { background-color: #262F36; }
+
+        body { 
+                background-color: transparent; 
+                background: url("./public/template_acceso_sistema/fondo_login.svg");
+                background-color: #262F36; 
+                background-repeat: no-repeat;
+                background-position: center top;
+                background-attachment: fixed;
+                backgroudn-size: contain;
+                color: #34789c;
+        }
+
         h2 { color: #fff; }
         
         label { color: #fff; }
@@ -67,17 +78,18 @@
 
   <body>
     <div class="container">
-      
-        <h2 class="form-signin-heading">Error 404</h2>
+        
+        <h2 class="form-signin-heading">Página no encontrada</h2>
+        <h4 class="form-signin-heading">Error 404</h4>
        
       <div align="center"> 
-        <b color="white">Scap</b>
+        <a><b color="white">Scap</b></a>
       </div>
 
     </div> 
     <!-- /container -->
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./template_acceso_sistema/ie10-viewport-bug-workaround.js.descarga"></script>
+    <script src="./public/template_acceso_sistema/ie10-viewport-bug-workaround.js.descarga"></script>
 </body>
 </html>
