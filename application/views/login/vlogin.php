@@ -37,7 +37,7 @@
         body { 
                 background-color: transparent; 
                 background: url("./public/template_acceso_sistema/fondo_login.svg");
-                background-color: #262F36; 
+                background-color: #f38b00; 
                 background-repeat: no-repeat;
                 background-position: top center; 
                 background-attachment: fixed;
