@@ -35,7 +35,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</button>
       </form>
       <div align="center"> 
-        <b color="white">®SCAP</b>
+        <b color="white">®SCAP.CL</b>
       </div>
 
     </div> 
