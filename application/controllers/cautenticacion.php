@@ -23,6 +23,8 @@ class Cautenticacion extends CI_Controller {
 
 	public function autenticar_usuario()
 	{
+		$this->load->helper('url');
+
 		$this->load->model('mscap_usuarios');
 
 		$usuario = $this->input->post('usuario');
@@ -36,7 +38,7 @@ class Cautenticacion extends CI_Controller {
 		
 		if (!empty($data["credencial"]))
 		{
-			redirect('../../chome');
+			redirect('../../cscap');
 		}
 		else
 		{	

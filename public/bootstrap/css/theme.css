@@ -1,8 +1,15 @@
 body {
-  padding-top: 80px;
+  padding-top: 60px;
   padding-bottom: 30px;
   background-color: #fff; 
   color: #262f36;
+}
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #ffffff;
+    border-radius: 4px;
 }
 
 .navbar-inverse {

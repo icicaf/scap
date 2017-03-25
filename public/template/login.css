@@ -1,0 +1,94 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+  background-color: transparent; 
+                background: url('./img/fondo_login.svg');
+                background-color: #f38b00; 
+                background-repeat: no-repeat;
+                background-position: top center; 
+                background-attachment: fixed;
+                backgroudn-size: contain;
+                color: #34789c;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+ /* Ahora podemos cambiar solo la propiedad background-image */
+        @media (min-width: 280px) {
+            body {
+                background-position: center -100px;
+            }
+        }
+        @media (min-width: 768px) {
+            body {
+                background-position: center ;
+            }
+        }
+        @media (min-width: 1200px) {
+            body {
+                background-position: center;
+            }
+        }
+
+        h2 { color: #fff; }
+        
+        label { color: #fff; }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #F38B00;
+            border-color: #fff;
+        }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #347faa;
+            border-color: #fff;
+        }
+
+        .btn-primary.focus, .btn-primary:focus {
+            color: #fff;
+            background-color: #347faa;
+            border-color: #fff;
+        }
+
+        .form-control:focus {
+            border-color: #F38B00;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(#e9e266), 0 2 8px rgba(#e9e266);
+            box-shadow: inset 0 1px 1px rgba(#e9e266), 0 2 8px rgba(#e9e266);
+        }

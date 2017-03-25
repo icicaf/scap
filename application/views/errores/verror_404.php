@@ -12,31 +12,22 @@
 
     <title>Error 404</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="./public/template_acceso_sistema/bootstrap.min.css" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="./public/template_acceso_sistema/ie10-viewport-bug-workaround.css" rel="stylesheet">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <!-- Custom styles for this template -->
-    <link href="./public/template_acceso_sistema/signin.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="./template_acceso_sistema/ie-emulation-modes-warning.js.descarga"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
     
     <style type="text/css">
 
         body { 
                 background-color: transparent; 
-                background: url("./public/template_acceso_sistema/fondo_login.svg");
+                background: url("<?php echo base_url(); ?>public/template_acceso_sistema/fondo_login.svg");
                 background-color: #262F36; 
                 background-repeat: no-repeat;
                 background-position: center top;
@@ -89,7 +80,5 @@
     </div> 
     <!-- /container -->
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./public/template_acceso_sistema/ie10-viewport-bug-workaround.js.descarga"></script>
 </body>
 </html>

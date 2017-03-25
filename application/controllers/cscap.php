@@ -2,7 +2,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Chome extends CI_Controller {
+class Cscap extends CI_Controller {
 
 	/**
 	 * 
