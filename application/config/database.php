@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'scap_demo',
+	'hostname' => 'opsi.ddns.net:3307',
+	'username' => 'scapdemo',
+	'password' => 'scapdemo',
+	'database' => 'scapdemo',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

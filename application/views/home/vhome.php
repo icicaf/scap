@@ -19,17 +19,38 @@
     <link href="./public/bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./public/bootstrap/css/theme.css" rel="stylesheet">
+    <link href="<?php base_url(); ?>public/bootstrap/css/theme.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="./public/bootstrap/js/ie-emulation-modes-warning.js"></script>
 
+
+ <script src="./public/bootstrap/js/jquery.mins.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./public/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+            $('#scapMenuPrincipal_administrarRutas').click(function() {
+                var url = '<?php base_url(); ?>cscap/rutas';
+                $('#div_panel_central').load(url, function(response,status,xhr) {
+                    console.log('cargado : '+url);
+                });
+            })
+        });
+    </script>
+
   </head>
 
   <body>
@@ -60,7 +81,7 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rutas <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Administrar rutas</a></li>
+                            <li><a id="scapMenuPrincipal_administrarRutas" href="#">Administrar rutas</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -87,80 +108,14 @@
     </nav>
  
     <div class="container theme-showcase" role="main">
-        <ol class="breadcrumb">
-            <li class="active">Inicio</li>
-        </ol>
-        <div class="col-md-9" role="main">
-            <div class="panel panel-default">
-            <!-- Default panel contents -->
-                <div class="panel-heading">Listado de archivos subidos para lecturas</div>
-                <div class="panel-body">
-                    <p>Formato Planilla</p>
-                    <form role="form">
-                      <div class="form-group">
-                        <label for="ejemplo_email_1">Email</label>
-                        <input type="email" class="form-control" id="ejemplo_email_1"
-                               placeholder="Introduce tu email">
-                      </div>
-                      <div class="form-group">
-                        <label for="ejemplo_password_1">Contraseña</label>
-                        <input type="password" class="form-control" id="ejemplo_password_1" 
-                               placeholder="Contraseña">
-                      </div>
-                      <div class="form-group">
-                        <label for="ejemplo_archivo_1">Adjuntar un archivo</label>
-                        <input type="file" id="ejemplo_archivo_1">
-                        <p class="help-block">Ejemplo de texto de ayuda.</p>
-                      </div>
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> Activa esta casilla
-                        </label>
-                      </div>
-                      <button type="submit" class="btn btn-default">Enviar</button>
-                    </form>
-                </div>
-
-                <!-- Table -->
-                <table class="table">
-                    ...
-                </table>
-            </div>
-        </div>
-        <div class="col-md-3" role="main">
-            <div class="panel panel-default">
-                 <div class="panel-heading">Ultimos archivos cargados</div>
-                <div class="panel-body">
-                    <div class="list-group">
-                        <div class="list-group"> 
-                            <a href="#" class="list-group-item active"> <h4 class="list-group-item-heading"> <span class="glyphicon glyphicon-file"></span>nombre_archivo1233.xls</h4> <p class="list-group-item-text">2017-03-12 a las 15:45</p> 
-                            </a>
-                            <br>
-                            <a href="#" class="list-group-item active"> <h4 class="list-group-item-heading"> <span class="glyphicon glyphicon-file"></span>nombre_archivo1233.xls</h4> <p class="list-group-item-text">2017-03-12 a las 15:45</p> 
-                            </a>
-                            <br>
-                            <a href="#" class="list-group-item active"> <h4 class="list-group-item-heading"> <span class="glyphicon glyphicon-file"></span>nombre_archivo1233.xls</h4> <p class="list-group-item-text">2017-03-12 a las 15:45</p> 
-                            </a> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- /container -->
-
         
 
-    
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="./js/bootstrap/jquery.min.js"><\/script>')</script>
-    <script src="./public/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./public/bootstrap/js/docs.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./public/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+        <div id="div_panel_central">
+            <ol class="breadcrumb">
+                <li class="active">Inicio</li>
+            </ol>
+        </div>
+    </div> <!-- /container -->
   </body>
 
 </html>
