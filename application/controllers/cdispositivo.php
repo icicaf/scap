@@ -12,7 +12,7 @@ class Cdispositivo extends CI_Controller
 	public function __construct()
     {
         parent::__construct();
-        //$this->load->model('mscap_dispositivos');
+        $this->load->model('mscap_dispositivos');
     }
 
     public function index()
@@ -20,15 +20,103 @@ class Cdispositivo extends CI_Controller
     	echo 'CONTROLADOR ACTIVO';
     }
 
+    //------------------------------------------------------------------------------------------------------------------------
     // Funcion que registra los datos enviados desde el dispositivo
     // Para ser registrado en el sistema SCAP
-    /*public function registrar_dispositivo()
+    public function registrar_dispositivo()
     {
-    	$imeiDispositivo = $this->input->post('imeiDispositivo');
-    	$propietarioDispositivo = $this->input->post('propietarioDispositivo');
-    	$funcionDispositivo = $this->input->post('funcionDispositivo');
+        $arreglo_datos_dispositivo = array();
+        $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
 
-    	$data = $this->mscap_dispositivo->registrar_dispositivo($imeiDispositivo,$propietarioDispositivo,$funcionDispositivo);
-    	echo json_encode($data);
-    }*/
+        if(!empty($datos_dispositivo))
+        {
+            foreach ($datos_dispositivo[0] as $key1) {
+                $imei = $key1;
+            }
+
+            foreach ($datos_dispositivo[1] as $key2) {
+                array_push($arreglo_datos_dispositivo, get_object_vars($key2));
+            }
+            $data=$this->registrar($imei,$arreglo_datos_dispositivo[0]);
+            echo $data;
+        }
+        else
+        {
+            echo '0';
+        }
+    }
+
+    public function registrar($imei,$datos)
+    {
+        $data=$this->mscap_dispositivos->registrar_dispositivo($imei,$datos);
+        return $data;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    // Funcion que verifica el status del dispositivo
+    // para autorizarlo a obtener datos desde el servidor
+    // En este caso permite traer las claves de lectura.
+    public function getClaves()
+    {
+        $arreglo_datos_dispositivo = array();
+        $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
+
+        if(!empty($datos_dispositivo))
+        {
+            foreach ($datos_dispositivo[0] as $key1) {
+                $imei = $key1;
+            }
+
+            foreach ($datos_dispositivo[1] as $key2) {
+                array_push($arreglo_datos_dispositivo, get_object_vars($key2));
+            }
+
+            $data=$this->claves($imei);
+            echo json_encode($data);
+        }
+        else
+        {
+            echo '0';
+        }
+    }
+
+    public function claves($datos)
+    {
+        $data=$this->mscap_dispositivos->getClaves($datos);
+        return $data;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    // Funcion que verifica el status del dispositivo
+    // para autorizarlo a obtener datos desde el servidor
+    // En este caso permite traer las rutas de lectura.
+    public function getRutas()
+    {
+        $arreglo_datos_dispositivo = array();
+        $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
+
+        if(!empty($datos_dispositivo))
+        {
+            foreach ($datos_dispositivo[0] as $key1) {
+                $imei = $key1;
+            }
+
+            foreach ($datos_dispositivo[1] as $key2) {
+                array_push($arreglo_datos_dispositivo, get_object_vars($key2));
+            }
+            
+            $data=$this->rutas($imei);
+            echo json_encode($data);
+        }
+        else
+        {
+            echo '0';
+        }
+    }
+
+    public function rutas($datos)
+    {
+        $data=$this->mscap_dispositivos->getRutas($datos);
+        return $data;
+    }
 }
