@@ -8,7 +8,6 @@ class Cscap extends CI_Controller {
         parent::__construct();
         // Your own constructor code
         $this->load->helper('url');
-        $this->load->model('mscap_rutas');
     }
 
 	/**
@@ -33,7 +32,7 @@ class Cscap extends CI_Controller {
 
 	public function lecturas()
 	{
-		//$this->load->view('lecturas/vadminstrar_lecturas');
+		$this->load->view('lecturas/vadministrar_lecturas');
 	}
 
 	/**
@@ -41,8 +40,7 @@ class Cscap extends CI_Controller {
 	 */
 	public function rutas()
 	{
-		$data['rutas'] = $this->mscap_rutas->get_all_rutas();
-		$this->load->view('rutas/vadministrar_rutas',$data);
+		$this->load->view('rutas/vadministrar_rutas');
 	}
 
 	/**

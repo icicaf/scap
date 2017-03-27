@@ -38,12 +38,24 @@
     <script src="./public/bootstrap/js/bootstrap.min.js"></script>
 
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
+ 
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+
+
 
     <script type="text/javascript">
         $(document).ready(function(){
             
             $('#scapMenuPrincipal_administrarRutas').click(function() {
                 var url = '<?php base_url(); ?>cscap/rutas';
+                $('#div_panel_central').load(url, function(response,status,xhr) {
+                    console.log('cargado : '+url);
+                });
+            })
+
+            $('#scapMenuPrincipal_administrarLecturas').click(function() {
+                var url = '<?php base_url(); ?>cscap/lecturas';
                 $('#div_panel_central').load(url, function(response,status,xhr) {
                     console.log('cargado : '+url);
                 });
@@ -72,9 +84,9 @@
                     <li class="#"><a href="#">Inicio</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lecturas <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Administrar lecturas</a></li>
+                            <li><a id="scapMenuPrincipal_administrarLecturas" href="#">Administrar lecturas</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="./cgestion_lecturas/descargar_lecturas">Estado de lecturas</a></li>
+                            <!-- <li><a href="#">Estado de lecturas</a></li> -->
                         </ul>
                     </li>
                 </ul>
@@ -86,9 +98,16 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Operarios <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Administrar usuarios</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dispositivos <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Administrar dispositivos</a></li>
                         </ul>
                     </li>
                 </ul>
