@@ -209,15 +209,14 @@ class Cscap_sync extends CI_Controller
 
         if(!empty($datos_dispositivo))
         {
-            foreach ($datos_dispositivo[0] as $key1) {
+            /*foreach ($datos_dispositivo[0] as $key1) {
                 $imei = $key1;
-            }
-
+            }*/
             foreach ($datos_dispositivo[1] as $key2) {
                 array_push($arreglo_datos_dispositivo, get_object_vars($key2));
             }
 
-            $data=$this->lecturasCompletadas($imei,$arreglo_datos_dispositivo[0]);
+            $data=$this->lecturasCompletadas($arreglo_datos_dispositivo);
             echo $data;
         }
         else
@@ -226,9 +225,9 @@ class Cscap_sync extends CI_Controller
         }
     }
 
-    public function lecturasCompletadas($datos,$arreglo_lecturas)
+    public function lecturasCompletadas($arreglo_lecturas)
     {
-        $data=$this->mscap_sync->sendLecturas($datos,$arreglo_lecturas);
+        $data=$this->mscap_sync->sendLecturas($arreglo_lecturas);
         return $data;
     }
 }
