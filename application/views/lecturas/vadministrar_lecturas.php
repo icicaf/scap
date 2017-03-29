@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <label></label>
-                                    <button type="submit" id="btn_mostrar_lectura" class="btn btn-default btn-md form-control"><span class="glyphicon glyphicon-save-file" aria-hidden="true"></span> Descargar lecturas</button>
+                                    <button type="submit" id="btn_descargar_lectura" class="btn btn-default btn-md form-control"><span class="glyphicon glyphicon-save-file" aria-hidden="true"></span> Descargar lecturas</button>
                                 </div>
                             </div>
                         </div>
@@ -335,16 +335,12 @@
             }
         });
 
-        $('#btn_mostrar_lectura').click( function() {
+        $('#btn_descargar_lectura').click( function() {
             
             if($.validar_formulario_descargar_lectura() == 0) {
+                var proceso = $("#proceso_descarga").val();
                 //$.descargar_lectura();
-                $.post("clecturas/descargar_excel", { proceso_descarga: $("#proceso_descarga").val()},
-                   function(data) {
-                     
-
-
-                   });
+                document.location.href="clecturas_recibidas/descargar_planilla_excel/"+proceso;
             }
             else
             {
