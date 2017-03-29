@@ -67,10 +67,6 @@ class Cdispositivo extends CI_Controller
                 $imei = $key1;
             }
 
-            foreach ($datos_dispositivo[1] as $key2) {
-                array_push($arreglo_datos_dispositivo, get_object_vars($key2));
-            }
-
             $data=$this->claves($imei);
             echo json_encode($data);
         }
@@ -101,10 +97,6 @@ class Cdispositivo extends CI_Controller
                 $imei = $key1;
             }
 
-            foreach ($datos_dispositivo[1] as $key2) {
-                array_push($arreglo_datos_dispositivo, get_object_vars($key2));
-            }
-            
             $data=$this->rutas($imei);
             echo json_encode($data);
         }
@@ -117,6 +109,66 @@ class Cdispositivo extends CI_Controller
     public function rutas($datos)
     {
         $data=$this->mscap_dispositivos->getRutas($datos);
+        return $data;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    // Funcion que verifica el status del dispositivo
+    // para autorizarlo a obtener datos desde el servidor
+    // En este caso permite traer los operadores del sistema.
+    public function getOperadores()
+    {
+        $arreglo_datos_dispositivo = array();
+        $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
+
+        if(!empty($datos_dispositivo))
+        {
+            foreach ($datos_dispositivo[0] as $key1) {
+                $imei = $key1;
+            }
+
+            $data=$this->operadores($imei);
+            echo json_encode($data);
+        }
+        else
+        {
+            echo '0';
+        }
+    }
+
+    public function operadores($datos)
+    {
+        $data=$this->mscap_dispositivos->getOperadores($datos);
+        return $data;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    // Funcion que verifica el status del dispositivo
+    // para autorizarlo a obtener datos desde el servidor
+    // En este caso permite traer los servicios a leer.
+    public function getlecturas()
+    {
+        $arreglo_datos_dispositivo = array();
+        $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
+
+        if(!empty($datos_dispositivo))
+        {
+            foreach ($datos_dispositivo[0] as $key1) {
+                $imei = $key1;
+            }
+
+            $data=$this->lecturas($imei);
+            echo json_encode($data);
+        }
+        else
+        {
+            echo '0';
+        }
+    }
+
+    public function lecturas($datos)
+    {
+        $data=$this->mscap_dispositivos->getlecturas($datos);
         return $data;
     }
 }
