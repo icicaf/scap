@@ -36,17 +36,21 @@ class Clecturas_recibidas extends CI_Controller {
 	{
 		$this->load->library("PHPExcel");
 
-		$this->phpexcel->setActiveSheetIndex(0)
+		$phpexcel = new PHPExcel();
+
+		$phpexcel->setActiveSheetIndex(0)
 						->setCellValue('A1','HOLA');
 
-		$this->phpexcel->getActiveSheet(0)->setTitle('Simple');
+		$phpexcel->getActiveSheet(0)->setTitle('Simple');
 
 		header('Contet-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 		header('Content-Disposition: attachement;filename="planila.xls"');
 		header('Cache-Control: max-age=0');
 
 
-		$ob = PHPExcel_IOfactory::createWriter($this->phpexcel,'Excel2007');
+		$ob = PHPExcel_IOfactory::createWriter($phpexcel,'Excel2007');
 		$ob->save('php://output');
+
+		exit;
 	}
 }
