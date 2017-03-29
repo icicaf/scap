@@ -118,21 +118,25 @@ class Mscap_sync extends CI_Model
     // para autorizarlo a obtener datos desde el servidor
     // En este caso permite obtener desde el dispositivo
     // Las lecturas realizadas.
-    public function sendLecturas($imei,$arreglo_lecturas)
+    public function sendLecturas($arreglo_lecturas)
     {
-        $data=$this->db->query('SELECT * FROM scap_dispositivos WHERE dispositivo_status=1 AND dispositivo_imei='.$imei);
+        /*$data=$this->db->query('SELECT * FROM scap_dispositivos WHERE dispositivo_status=1 AND dispositivo_imei='.$wea2);
         $data->num_rows();
         
         if($data->num_rows()==1){
-            $cont=0;
-            foreach ($arreglo_lecturas as $key) {
-                $data=$this->db->insert('scap_lecturas_recibidas',$arreglo_lecturas[$cont]);
-                $cont++;
-            }
-            return $datas;
-        }else{
+            $data=$this->db->insert_batch('scap_lecturas_recibidas',$arreglo_lecturas);  
+            return $data;
+        }
+        else{
             echo 'Reqistro no existe o esta duplicado';
             return 0;
-        }       
+        }*/
+
+        $cont=0;
+        foreach ($arreglo_lecturas as $key) {
+            $data=$this->db->insert('scap_lecturas_recibidas',$arreglo_lecturas[$cont]);
+            $cont++;
+        }
+        return $data; 
     }
 }
