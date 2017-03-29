@@ -58,7 +58,6 @@ class Cscap_sync extends CI_Controller
     // En este caso permite traer las claves de lectura.
     public function getClaves()
     {
-        $arreglo_datos_dispositivo = array();
         $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
 
         if(!empty($datos_dispositivo))
@@ -88,7 +87,6 @@ class Cscap_sync extends CI_Controller
     // En este caso permite traer las rutas de lectura.
     public function getRutas()
     {
-        $arreglo_datos_dispositivo = array();
         $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
 
         if(!empty($datos_dispositivo))
@@ -118,7 +116,6 @@ class Cscap_sync extends CI_Controller
     // En este caso permite traer los operadores del sistema.
     public function getOperadores()
     {
-        $arreglo_datos_dispositivo = array();
         $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
 
         if(!empty($datos_dispositivo))
@@ -148,7 +145,6 @@ class Cscap_sync extends CI_Controller
     // En este caso permite traer rutas asignadas a los operadores.
     public function getRutasOperadores()
     {
-        $arreglo_datos_dispositivo = array();
         $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
 
         if(!empty($datos_dispositivo))
@@ -178,7 +174,6 @@ class Cscap_sync extends CI_Controller
     // En este caso permite traer los servicios a leer.
     public function getlecturas()
     {
-        $arreglo_datos_dispositivo = array();
         $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
 
         if(!empty($datos_dispositivo))
@@ -199,6 +194,41 @@ class Cscap_sync extends CI_Controller
     public function lecturas($datos)
     {
         $data=$this->mscap_sync->getlecturas($datos);
+        return $data;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    // Funcion que verifica el status del dispositivo
+    // para autorizarlo a obtener datos desde el servidor
+    // En este caso permite obtener desde el dispositivo
+    // Las lecturas realizadas.
+    public function sendLecturas()
+    {
+        $arreglo_datos_dispositivo = array();
+        $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
+
+        if(!empty($datos_dispositivo))
+        {
+            foreach ($datos_dispositivo[0] as $key1) {
+                $imei = $key1;
+            }
+
+            foreach ($datos_dispositivo[1] as $key2) {
+                array_push($arreglo_datos_dispositivo, get_object_vars($key2));
+            }
+
+            $data=$this->lecturasCompletadas($imei,$arreglo_datos_dispositivo[0]);
+            echo $data;
+        }
+        else
+        {
+            echo '0';
+        }
+    }
+
+    public function lecturasCompletadas($datos,$arreglo_lecturas)
+    {
+        $data=$this->mscap_sync->sendLecturas($datos,$arreglo_lecturas);
         return $data;
     }
 }
