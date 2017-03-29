@@ -67,6 +67,11 @@
                         <label class="control-label">imei</label>
                         <input type="text" class="form-control" name="imei" id="imei" required>
                     </div>
+                    <div class="form-group">
+                        <select id="" class="form-control" name="status" id="status" disabled required>
+                            <option value="1" selected>Activo</option>
+                        </select>
+                    </div>
                     <button type="submit" id="btn_insertar_dipositivo" class="btn btn-success">Confirmar</button>
                 </form>
             </div>
@@ -93,6 +98,13 @@
                 <label class="control-label">imei
                 <input type="text" class="form-control" name="editar_imei" id="editar_imei" required>
                 </label><button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-md">Eliminar</button>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Status</label>
+                <select id="" class="form-control" name="ruta" id="ruta"required>
+                    <option value="1" selected>Activo</option>
+                    <option value="0">Inactivo</option>
+                </select>
             </div>
             <button type="submit" id="btn_editar_dispositivo" class="btn btn-success">Guardar</button>
         </form>
@@ -309,12 +321,13 @@
                 $('#eliminar_id').val(tabla_dipositivos.row(index).data()['dispositivo_ID']);
                 $('#eliminar_imei').val(tabla_dipositivos.row(index).data()['dispositivo_imei']);
                 $('#eliminar_obs').val(tabla_dipositivos.row(index).data()['dispositivo_obs']);
-                 $('#eliminar_status').val(tabla_dipositivos.row(index).data()['dispositivo_status']);
+                $('#eliminar_status').val(tabla_dipositivos.row(index).data()['dispositivo_status']);
                 $('#eliminar_propietario').val(tabla_dipositivos.row(index).data()['dispositivo_propietario']);
                 $('#eliminar_funcion').val(tabla_dipositivos.row(index).data()['dispositivo_funcion']);
                 
                 $('#editar_id').val(tabla_dipositivos.row(index).data()['dispositivo_ID']);
                 $('#editar_imei').val(tabla_dipositivos.row(index).data()['dispositivo_imei']);
+                $('#editar_status').val(tabla_dipositivos.row(index).data()['dispositivo_status']);
                 
                 $('#modal-editarDispositivo').modal('toggle');
             }

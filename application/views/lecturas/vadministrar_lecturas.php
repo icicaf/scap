@@ -17,7 +17,9 @@
             <li>
                 <a  href="#2a" data-toggle="tab">Carga de lecturas</a>
             </li>
-            
+            <li>
+                <a  href="#3a" data-toggle="tab">Claves de lecturas</a>
+            </li>
         </ul>
         <div class="tab-content clearfix">
             <div class="tab-pane active" id="1a">
