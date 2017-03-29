@@ -125,7 +125,10 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Status</label>
-                <input type="text" class="form-control" name="editar_status" id="editar_status">
+                <select id="" class="form-control" name="editar_estatus" id="editar_estatus" disabled required>
+                    <option value="1" selected>Activo</option>
+                    <option value="0">Inactivo</option>
+                </select>
             </div>
             <button type="submit" id="btn_editar_operador" class="btn btn-success">Guardar</button>
         </form>

@@ -101,7 +101,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Status</label>
-                <select id="" class="form-control" name="ruta" id="ruta"required>
+                <select id="" class="form-control" name="editar_status" id="editar_status"required>
                     <option value="1" selected>Activo</option>
                     <option value="0">Inactivo</option>
                 </select>

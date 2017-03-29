@@ -14,7 +14,7 @@ class Mscap_rutas extends CI_Model {
                     ruta_ID,
                     ruta_codigo,
                     ruta_nombre,
-                    ruta_fecha_hora_creacion,
+                    DATE_FORMAT(ruta_fecha_hora_creacion,'%d-%m-%Y %H:%m') AS ruta_fecha_hora_creacion,
                     ruta_obs,
                     ruta_localidad_ID
                 FROM

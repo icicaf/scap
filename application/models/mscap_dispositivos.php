@@ -13,8 +13,8 @@ class Mscap_dispositivos extends CI_Model
                     dispositivo_ID,
                     dispositivo_imei,
                     dispositivo_obs,
-                    dispositivo_status,
-                    dispositivo_fecha_hora_creacion,
+                    IF(dispositivo_status=1,'ACTIVO','INACTIVO') AS dispositivo_status,
+                    DATE_FORMAT(dispositivo_fecha_hora_creacion, '%d-%m-%Y %H:%m') AS dispositivo_fecha_hora_creacion,
                     dispositivo_propietario,
                     dispositivo_funcion,
                     dispositivo_fecha_hora_sync

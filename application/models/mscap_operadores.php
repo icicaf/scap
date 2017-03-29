@@ -16,9 +16,9 @@ class Mscap_operadores extends CI_Model {
                     operador_pass,
                     operador_nombre,
                     operador_obs,
-                    operador_fecha_hora_creacion,
+                    DATE_FORMAT(operador_fecha_hora_creacion, '%d-%m-%Y %H:%m') AS operador_fecha_hora_creacion,
                     operador_fecha_hora_sync,
-                    operador_status
+                    IF(operador_status=1,'ACTIVO','INACTIVO') AS operador_status,
                 FROM
                     scap_operadores";
 
