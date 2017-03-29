@@ -1,18 +1,18 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
-*	Clase Cdispositivo Controller 
+*	Clase Cscap_sync Controller 
 *
 *	@author SCAP DEV
 *	@since 	Version 1.0
 */
 
-class Cdispositivo extends CI_Controller
+class Cscap_sync extends CI_Controller
 {
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('mscap_dispositivos');
+        $this->load->model('mscap_sync');
     }
 
     public function index()
@@ -48,7 +48,7 @@ class Cdispositivo extends CI_Controller
 
     public function registrar($imei,$datos)
     {
-        $data=$this->mscap_dispositivos->registrar_dispositivo($imei,$datos);
+        $data=$this->mscap_sync->registrar_dispositivo($imei,$datos);
         return $data;
     }
 
@@ -78,7 +78,7 @@ class Cdispositivo extends CI_Controller
 
     public function claves($datos)
     {
-        $data=$this->mscap_dispositivos->getClaves($datos);
+        $data=$this->mscap_sync->getClaves($datos);
         return $data;
     }
 
@@ -108,7 +108,7 @@ class Cdispositivo extends CI_Controller
 
     public function rutas($datos)
     {
-        $data=$this->mscap_dispositivos->getRutas($datos);
+        $data=$this->mscap_sync->getRutas($datos);
         return $data;
     }
 
@@ -138,7 +138,37 @@ class Cdispositivo extends CI_Controller
 
     public function operadores($datos)
     {
-        $data=$this->mscap_dispositivos->getOperadores($datos);
+        $data=$this->mscap_sync->getOperadores($datos);
+        return $data;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    // Funcion que verifica el status del dispositivo
+    // para autorizarlo a obtener datos desde el servidor
+    // En este caso permite traer rutas asignadas a los operadores.
+    public function getRutasOperadores()
+    {
+        $arreglo_datos_dispositivo = array();
+        $datos_dispositivo = json_decode($this->input->post("datos_dispositivo"));
+
+        if(!empty($datos_dispositivo))
+        {
+            foreach ($datos_dispositivo[0] as $key1) {
+                $imei = $key1;
+            }
+
+            $data=$this->rutas_operadores($imei);
+            echo json_encode($data);
+        }
+        else
+        {
+            echo '0';
+        }
+    }
+
+    public function rutas_operadores($datos)
+    {
+        $data=$this->mscap_sync->getRutasOperadores($datos);
         return $data;
     }
 
@@ -168,7 +198,7 @@ class Cdispositivo extends CI_Controller
 
     public function lecturas($datos)
     {
-        $data=$this->mscap_dispositivos->getlecturas($datos);
+        $data=$this->mscap_sync->getlecturas($datos);
         return $data;
     }
 }
