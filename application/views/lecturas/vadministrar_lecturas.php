@@ -59,40 +59,40 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                    <div class="table-responsive">
-                <table id="tabla_lecturas_recibidas" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Servicio</th>
-                            <th>Proceso</th>
-                            <th>Lectura</th>
-                            <th>Clave</th>
-                            <th>Nombre Foto</th>
-                            <th>Fecha lectura</th>
-                            <th>Operador</th>
-                            <th>Observación</th>
-                            <th>Fecha Sync.</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Servicio</th>
-                            <th>Proceso</th>
-                            <th>Lectura</th>
-                            <th>Clave</th>
-                            <th>Nombre Foto</th>
-                            <th>Fecha lectura</th>
-                            <th>Operador</th>
-                            <th>Observación</th>
-                            <th>Fecha Sync.</th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            </div>
-            </div>
+                            <div class="table-responsive">
+                                <table id="tabla_lecturas_recibidas" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Servicio</th>
+                                            <th>Proceso</th>
+                                            <th>Lectura</th>
+                                            <th>Clave</th>
+                                            <th>Nombre Foto</th>
+                                            <th>Fecha lectura</th>
+                                            <th>Operador</th>
+                                            <th>Observación</th>
+                                            <th>Fecha Sync.</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Servicio</th>
+                                            <th>Proceso</th>
+                                            <th>Lectura</th>
+                                            <th>Clave</th>
+                                            <th>Nombre Foto</th>
+                                            <th>Fecha lectura</th>
+                                            <th>Operador</th>
+                                            <th>Observación</th>
+                                            <th>Fecha Sync.</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="tab-pane" id="2a">
@@ -111,11 +111,43 @@
                     </div>
                 </div>
             </div>
+            <div class="tab-pane" id="3a">
+                <h3>Claves de lectura <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#modal-crearClave" data-whatever="@mdo"><span class="glyphicon glyphicon-plus right" aria-hidden="true"></span> Crear clave</button></h3>                                                
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="tabla_claves" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Acronimo</th>
+                                        <th>Requiere lectura</th>
+                                        <th>Requiere foto</th>
+                                        <th>Observación</th>
+                                        <th>Fecha creación</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                       <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Acronimo</th>
+                                        <th>Requiere lectura</th>
+                                        <th>Requiere foto</th>
+                                        <th>Observación</th>
+                                        <th>Fecha creación</th>
+                                     </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
   </div>
 </div> 
 <!-- /container -->
-
 <div class="modal fade" id="modal-cargarLectura" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
@@ -155,11 +187,50 @@
   </div>
 </div>
 
+<div class="modal fade" id="modal-crearClave" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Clave</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formulario_nueva_clave" name="formulario_nueva_clave" onsubmit="return false;">
+                    <div class="form-group">
+                        <label class="control-label">Nombre clave</label>
+                        <input type="text" class="form-control" name="clave_nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Acronimo</label>
+                        <input type="text" class="form-control" name="clave_acronimo" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Requiere lectura</label>
+                        <input type="text" class="form-control" name="clave_requiere_lectura" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Require foto</label>
+                        <input type="text" class="form-control" name="clave_requiere_foto" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Observacion</label>
+                        <input type="text" class="form-control" name="clave_obs" >
+                    </div>
+                    <button type="submit" id="btn_crear_clave" class="btn btn-success">Confirmar</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     $(document).ready(function()
     {
-        var tabla_lecturas;
         var tabla_lecturas_recibidas;
+        var tabla_claves;
 
         $('#btn_cargar_lectura').click( function() {
             if($.validar_formulario_cargar_lectura() == 0) {
@@ -284,6 +355,94 @@
             });
         }
 
+        $.mostrar_claves = function() {
+            tabla_claves = $('#tabla_claves').DataTable( {
+                "bDestroy" : true,
+                "ajax": 'cclaves/get_claves',
+                "columns": [{"data":"clave_ID"},
+                            {"data":"clave_nombre"},
+                            {"data":"clave_acronimo"},
+                            {"data":"clave_requiere_lectura"},
+                            {"data":"clave_requiere_foto"},
+                            {"data":"clave_obs"},
+                            {"data":"clave_fecha_hora_creacion"}
+                            ],
+                "columnDefs": [{"targets": [ 0 ],
+                                "visible": false,
+                                "searchable": false}]
+            });
+        }
+
+
+
+         $('#btn_crear_clave').click( function() {
+            if($.validar_formulario_nueva_clave() == 0) {
+                $.guardar_clave();
+                $('#formulario_nueva_clave').each (function() {
+                    this.reset();       
+                });
+                $.mostrar_claves();
+            }
+        });
+
+        $.validar_formulario_nueva_clave = function() {
+            var errores = 0;
+            $('#formulario_nueva_clave').find('input').each(function() {
+                if($(this).prop('required')) {
+                    if($(this).val().length == 0) {
+                        console.log('Errores:'+ $(this).attr('name'));
+                        errores++;
+                    }
+                }
+            });
+            return errores;
+        }
+
+
+         $.guardar_clave = function () {
+            var controlador = 'cclaves/insert_clave';
+            var data = new FormData(document.forms.namedItem('formulario_nueva_clave'));
+            $.ajax({
+                async:false, 
+                type:'POST',
+                url:controlador,
+                data:data,
+                processData:false,
+                contentType:false,
+                success:function(msg) {
+                    console.log(msg);
+                    if(msg > 0) {
+                        console.log('Ingresado correctamente');
+                        $('#modal-crearClave').modal('toggle');
+                    }
+                },error: function(jqxhr,textStatus,error){}
+            });
+        }
+
         $.mostrar_lecturas_recibidas();
+        $.mostrar_claves();
+
+        $('#tabla_claves tbody').on( 'dblclick', 'tr', function () {
+            if ( $(this).hasClass('selected') ) {
+            }else {
+                tabla_claves.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+
+            if(typeof tabla_claves.row(this).index() === 'undefined') {
+            }else{
+                index = tabla_claves.row(this).index();
+               
+                //$('#eliminar_id').val(tabla_claves.row(index).data()['ruta_ID']);
+                //$('#eliminar_codigo').val(tabla_claves.row(index).data()['ruta_codigo']);
+                //$('#eliminar_nombre').val(tabla_claves.row(index).data()['ruta_nombre']);
+                
+                //$('#editar_id').val(tabla_claves.row(index).data()['ruta_ID']);
+                //$('#editar_codigo').val(tabla_claves.row(index).data()['ruta_codigo']);
+                //$('#editar_nombre').val(tabla_claves.row(index).data()['ruta_nombre']);
+                //$('#editar_observacion').val(tabla_claves.row(index).data()['ruta_obs']);
+                //$('#modal-editarRuta').modal('toggle');
+            }
+        });
     });
 </script>

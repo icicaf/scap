@@ -37,12 +37,9 @@ class Cscap extends CI_Controller {
 		$this->load->model('mscap_rutas');
 		$this->load->model('mscap_lecturas_recibidas');
 
-
 		$data["rutas"] = $this->mscap_rutas->get_all_rutas();
 		$data["procesos"] = $this->mscap_lecturas_recibidas->get_all_procesos();
 
-		
-		
 		$this->load->view('lecturas/vadministrar_lecturas',$data);
 	}
 
