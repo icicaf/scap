@@ -283,7 +283,7 @@
             "info": "Showing page _PAGE_ of _PAGES_",
             "infoEmpty": "No records available",
             "infoFiltered": "(filtered from _MAX_ total registros)"
-        },
+            },
                 "ajax": 'cdispositivos/get_dispositivos',
                 "columns": [{"data":"dispositivo_ID"},
                             {"data":"dispositivo_imei"},

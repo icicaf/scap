@@ -8,8 +8,11 @@ class Clecturas extends CI_Controller {
     {
         parent::__construct();
         // Your own constructor code
-        $this->load->model('mscap_lecturas');
+        $this->load->database();
+       
         $this->load->helper('url');
+        $this->load->model('mscap_lecturas');
+        $this->load->model('mscap_lecturas_recibidas');
     }
 	/**
 	 * 
@@ -22,6 +25,7 @@ class Clecturas extends CI_Controller {
 
 	public function cargar_excel()
 	{
+		
 		$config['max_size'] = '9000';
 		$this->load->library('upload',$config);
 
@@ -66,10 +70,8 @@ class Clecturas extends CI_Controller {
 
 
        	$resultadato = $this->mscap_lecturas->insert_lecturas($arreglo_lecturas);
-       	print_r($arreglo_lecturas);
+       	//print_r($arreglo_lecturas);
 
-       	//$result['valid'] = true;
-		///$result['message'] = 'Productos importados correctamente';
-		//$this->output->set_content_type('application/json')->set_output(json_encode($result)); 	
+       	echo 1;
 	}
 }
