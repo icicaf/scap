@@ -1,5 +1,5 @@
 <?php 
-class Mscap_dispositivos extends CI_Model
+class Mscap_sync extends CI_Model
 {
     public function __construct()
     {
@@ -65,6 +65,29 @@ class Mscap_dispositivos extends CI_Model
         
         if($data->num_rows()==1){
             $query = $this->db->get('scap_operadores');
+            return $query->result_array();
+        }else{
+            echo 'Reqistro no existe o esta duplicado';
+            return 0;
+        }       
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    // Funcion que verifica el status del dispositivo
+    // para autorizarlo a obtener datos desde el servidor
+    // En este caso permite traer operadores del sistema.
+    public function getRutasOperadores($imei)
+    {
+        $data=$this->db->query('SELECT * FROM scap_dispositivos WHERE dispositivo_status=1 AND dispositivo_imei='.$imei);
+        $data->num_rows();
+        
+        if($data->num_rows()==1){
+            $query = $this->db->query(' SELECT  A.ruta_operador_ID AS ruta_operador_ID,
+                                                B.ruta_ID AS ruta_ID,
+                                                C.operador_login AS operador_login
+                                        FROM scap_rutas_operadores AS A 
+                                        INNER JOIN scap_rutas AS B ON B.ruta_ID = A.ruta_ID
+                                        INNER JOIN scap_operadores AS C ON C.operador_ID = A.operador_ID');
             return $query->result_array();
         }else{
             echo 'Reqistro no existe o esta duplicado';
