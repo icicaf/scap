@@ -60,6 +60,20 @@
                     console.log('cargado : '+url);
                 });
             })
+
+            $('#scapMenuPrincipal_administrarOperadores').click(function() {
+                var url = '<?php base_url(); ?>cscap/operadores';
+                $('#div_panel_central').load(url, function(response,status,xhr) {
+                    console.log('cargado : '+url);
+                });
+            })
+
+            $('#scapMenuPrincipal_administrarDispositivos').click(function() {
+                var url = '<?php base_url(); ?>cscap/dispositivos';
+                $('#div_panel_central').load(url, function(response,status,xhr) {
+                    console.log('cargado : '+url);
+                });
+            })
         });
     </script>
 
@@ -98,16 +112,16 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Operarios <span class="caret"></span></a>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Operadores <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Administrar usuarios</a></li>
+                            <li><a id="scapMenuPrincipal_administrarOperadores" href="#">Administrar Operadores</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dispositivos <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Administrar dispositivos</a></li>
+                            <li><a id="scapMenuPrincipal_administrarDispositivos" href="#">Administrar dispositivos</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -118,7 +132,7 @@
                         <ul class="dropdown-menu"> 
                             <li><a href="#">Configuración</a></li> 
                             <li role="separator" class="divider"></li> 
-                            <li><a href="#">Cerrar sesión</a></li> 
+                            <li><a href="<?php base_url(); ?>../scap.cl">Cerrar sesión</a></li> 
                         </ul> 
                     </li> 
                 </ul>

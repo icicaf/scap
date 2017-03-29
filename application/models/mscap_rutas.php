@@ -24,7 +24,7 @@ class Mscap_rutas extends CI_Model {
     	//echo $SQL;
 	    $query = $this->db->query($SQL);
 
-	    return	$query->result();		        
+	    return	$query->result_array();		        
     }
 
     //INGRESO DE UN SOLA RUTAS

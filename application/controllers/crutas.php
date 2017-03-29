@@ -24,6 +24,10 @@ class Crutas extends CI_Controller {
 	{
 		$data['data'] = $this->mscap_rutas->get_all_rutas();
 		
+		$this->output
+	        ->set_status_header(200)
+	        ->set_content_type('application/json', 'utf-8');
+
 		echo json_encode($data);
 	}
 
