@@ -22,7 +22,7 @@ class Mscap_dispositivos extends CI_Model
                     scap_dispositivos";
 
         //DEBUG
-        //echo $SQL;
+        //echo $SQL;ADSD
         $query = $this->db->query($SQL);
 
         return  $query->result_array();             
