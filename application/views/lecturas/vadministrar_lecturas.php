@@ -12,20 +12,41 @@
     <div id="exTab1" class="container"> 
         <ul  class="nav nav-pills">
             <li class="active">
-                <a  href="#1a" data-toggle="tab">Estado de lecturas</a>
+                <a  href="#1a" data-toggle="tab">Lecturas completadas</a>
             </li>
             <li>
                 <a  href="#2a" data-toggle="tab">Carga de lecturas</a>
             </li>
             <li>
-                <a  href="#3a" data-toggle="tab">Claves de lecturas</a>
+                <a  href="#3a" data-toggle="tab">Claves de lectura</a>
             </li>
         </ul>
         <div class="tab-content clearfix">
             <div class="tab-pane active" id="1a">
-                <h3>Estado de lecturas</h3>
+                <h3>Descargar lecturas completadas</h3>
                 <div class="panel-body">
-                
+                    <div class="form-group">
+                        <label>Rutas</label>
+                        <select class="form-control" id="select_rutas">
+                            <option value="">Seleccione una ruta</option>';
+                        <?php
+                            foreach ($rutas as $key) {
+                                echo '<option value="'.$key['ruta_codigo'].'">'.$key['ruta_nombre'].'</option>';
+                            }
+                        ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Rutas</label>
+                        <select class="form-control" id="select_rutas">
+                            <option value="">Seleccione una ruta</option>';
+                        <?php
+                            foreach ($rutas as $key) {
+                                echo '<option value="'.$key['ruta_codigo'].'">'.$key['ruta_nombre'].'</option>';
+                            }
+                        ?>
+                        </select>
+                    </div>
                 </div>
 
             </div>
@@ -45,7 +66,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Carga de lectura</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Descargar lecturas</h4>
       </div>
       <div class="modal-body">
         <form id="formulario_cargar_lectura" name="formulario_cargar_lectura" onsubmit="return false;">
