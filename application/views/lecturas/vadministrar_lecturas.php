@@ -225,12 +225,105 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modal-editarClave" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Editar clave</h4>
+      </div>
+      <div class="modal-body">
+        <form id="formulario_editar_ruta" name="formulario_editar_ruta" onsubmit="return false;">
+            <div class="form-group" hidden>
+                <label class="control-label">ID de clave
+                <input type="text" class="form-control" name="editar_clave_id" id="editar_clave_id" readonly required>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Nombre clave
+                <input type="text" class="form-control" name="editar_clave_nombre" id="editar_clave_nombre" required>
+                </label><button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-md">Eliminar</button>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Acronimo clave</label>
+                <input type="text" class="form-control" name="editar_clave_acronimo"  id="editar_clave_acronimo" required>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Require foto</label>
+                <input type="text" class="form-control" name="editar_clave_requiere_foto" id="editar_clave_requiere_foto" required>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Require lectura</label>
+                <input type="text" class="form-control" name="editar_clave_requiere_lectura" id="editar_clave_requiere_lectura" required>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Observacion</label>
+                <input type="text" class="form-control" name="editar_clave_obs" id="editar_clave_obs" >
+            </div>
+           
+            <button type="submit" id="btn_editar_ruta" class="btn btn-success">Guardar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Salir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-example-modal-md" id="modal-eliminarClave" tabindex="0" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Eliminar clave</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formulario_eliminar_clave" name="formulario_eliminar_clave" onsubmit="return false;">
+                    <div class="form-group" hidden>
+                        <label class="control-label">ID de clave
+                        <input type="text" class="form-control" name="eliminar_clave_id" id="eliminar_clave_id" readonly required>
+                    </div>
+                    
+                    <button type="submit" id="btn_eliminar_clave" class="btn btn-danger">Eliminar clave</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
     $(document).ready(function()
     {
         var tabla_lecturas_recibidas;
         var tabla_claves;
+
+        $('#btn_eliminar_clave').click( function() {
+            $.eliminar_clave();
+            $.mostrar_claves();
+        });
+
+         $.eliminar_clave = function () {
+            var controlador = 'cclaves/eliminar_clave';
+            var data = new FormData(document.forms.namedItem('formulario_eliminar_clave'));
+            $.ajax({
+                async:false, 
+                type:'POST',
+                url:controlador,
+                data:data,
+                processData:false,
+                contentType:false,
+                success:function(msg) {
+                    console.log(msg);
+                    if(msg > 0) {
+                        console.log('Eliminado correctamente');
+                        $('#modal-eliminarClave').modal('toggle');
+                        $('#modal-editarClave').modal('toggle');
+                    }
+                },error: function(jqxhr,textStatus,error){}
+            });
+        }
 
         $('#btn_cargar_lectura').click( function() {
             if($.validar_formulario_cargar_lectura() == 0) {
@@ -433,15 +526,15 @@
             }else{
                 index = tabla_claves.row(this).index();
                
-                //$('#eliminar_id').val(tabla_claves.row(index).data()['ruta_ID']);
-                //$('#eliminar_codigo').val(tabla_claves.row(index).data()['ruta_codigo']);
-                //$('#eliminar_nombre').val(tabla_claves.row(index).data()['ruta_nombre']);
+                $('#eliminar_clave_id').val(tabla_claves.row(index).data()['clave_ID']);                
                 
-                //$('#editar_id').val(tabla_claves.row(index).data()['ruta_ID']);
-                //$('#editar_codigo').val(tabla_claves.row(index).data()['ruta_codigo']);
-                //$('#editar_nombre').val(tabla_claves.row(index).data()['ruta_nombre']);
-                //$('#editar_observacion').val(tabla_claves.row(index).data()['ruta_obs']);
-                //$('#modal-editarRuta').modal('toggle');
+                $('#editar_id').val(tabla_claves.row(index).data()['clave_ID']);
+                $('#editar_clave_nombre').val(tabla_claves.row(index).data()['clave_nombre']);
+                $('#editar_clave_acronimo').val(tabla_claves.row(index).data()['clave_acronimo']);
+                $('#editar_clave_obs').val(tabla_claves.row(index).data()['clave_obs']);
+                $('#editar_clave_requiere_foto').val(tabla_claves.row(index).data()['clave_requiere_foto']);
+                $('#editar_clave_requiere_lectura').val(tabla_claves.row(index).data()['clave_requiere_lectura']);
+                $('#modal-editarClave').modal('toggle');
             }
         });
     });
