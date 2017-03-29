@@ -65,23 +65,7 @@
                 <form id="formulario_nuevo_dispositivo" name="formulario_nuevo_dispositivo" onsubmit="return false;">
                     <div class="form-group">
                         <label class="control-label">imei</label>
-                        <input type="text" class="form-control" name="imei" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">obs</label>
-                        <input type="text" class="form-control" name="obs" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">creacion</label>
-                        <input type="text" class="form-control" name="creacion" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Observación</label>
-                        <input type="text" class="form-control" name="obs" >
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Status</label>
-                        <input type="text" class="form-control" name="status" value="1" readonly required>
+                        <input type="text" class="form-control" name="imei" id="imei" required>
                     </div>
                     <button type="submit" id="btn_insertar_dipositivo" class="btn btn-success">Confirmar</button>
                 </form>
@@ -97,7 +81,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Editar ruta</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Editar dispositivo</h4>
       </div>
       <div class="modal-body">
         <form id="formulario_editar_dispositivo" name="formulario_editar_dispositivo" onsubmit="return false;">
@@ -107,25 +91,8 @@
             </div>
             <div class="form-group">
                 <label class="control-label">imei
-                <input type="text" class="form-control" name="editar_imei" id="editar_imei" readonly required>
+                <input type="text" class="form-control" name="editar_imei" id="editar_imei" required>
                 </label><button type="button" class="btn btn-default" data-toggle="modal" data-target=".bs-example-modal-md">Eliminar</button>
-
-            </div>
-            <div class="form-group">
-                <label class="control-label">obs</label>
-                <input type="text" class="form-control" name="editar_obs" id="editar_obs" required>
-            </div>
-            <div class="form-group">
-                <label class="control-label">creacion</label>
-                <input type="text" class="form-control" name="editar_creacion" id="editar_creacion" >
-            </div>
-            <div class="form-group">
-                <label class="control-label">Observación</label>
-                <input type="text" class="form-control" name="editar_obs" id="editar_obs" >
-            </div>
-            <div class="form-group">
-                <label class="control-label">Status</label>
-                <input type="text" class="form-control" name="editar_status" id="editar_status">
             </div>
             <button type="submit" id="btn_editar_dispositivo" class="btn btn-success">Guardar</button>
         </form>
@@ -137,31 +104,39 @@
   </div>
 </div>
 
-<div class="modal fade bs-example-modal-md" id="modal-eliminardisositivo" tabindex="0" role="dialog" aria-labelledby="mySmallModalLabel">
+<div class="modal fade bs-example-modal-md" id="modal-eliminardispositivo" tabindex="0" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4>Eliminar disositivo</h4>
+                <h4>Eliminar dispositivo</h4>
             </div>
             <div class="modal-body">
-                <form id="formulario_eliminar_disositivo" name="formulario_eliminar_disositivo" onsubmit="return false;">
+                <form id="formulario_eliminar_dispositivo" name="formulario_eliminar_dispositivo" onsubmit="return false;">
                     <div class="form-group" hidden>
                         <label class="control-label">ID de operario</label>
                         <input type="text" class="form-control" name="eliminar_id" id="eliminar_id" readonly required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">imei</label>
+                        <label class="control-label">IMEI</label>
                         <input type="text" class="form-control" name="eliminar_imei" id="eliminar_imei" readonly required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">creacion</label>
-                        <input type="text" class="form-control" name="eliminar_creacion" id="eliminar_creacion" readonly>
+                        <label class="control-label">Observación</label>
+                        <input type="text" class="form-control" name="eliminar_obs" id="eliminar_obs" readonly>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Status</label>
                         <input type="text" class="form-control" name="eliminar_status" id="eliminar_status" readonly>
                     </div>
-                    <button type="submit" id="btn_eliminar_disositivo" class="btn btn-danger">Eliminar disositivo</button>
+                    <div class="form-group">
+                        <label class="control-label">Propietario</label>
+                        <input type="text" class="form-control" name="eliminar_propietario" id="eliminar_propietario" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Función</label>
+                        <input type="text" class="form-control" name="eliminar_funcion" id="eliminar_funcion" readonly>
+                    </div>
+                    <button type="submit" id="btn_eliminar_dispositivo" class="btn btn-danger">Eliminar dispositivo</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -181,23 +156,23 @@
                 $('#formulario_nuevo_dispositivo').each (function() {
                     this.reset();       
                 });
-                $.mostrar_disositivoes();
+                $.mostrar_dipositivos();
             }
         });
 
         $('#btn_editar_dispositivo').click( function() {
             if($.validar_formulario_editar_dispositivo() == 0) {
-                $.editar_ruta();
+                $.editar_dispositivo();
                 $('#formulario_editar_dispositivo').each (function() {
                     this.reset();       
                 });
-                $.mostrar_disositivoes();
+                $.mostrar_dipositivos();
             }
         });
 
-        $('#btn_eliminar_disositivo').click( function() {
+        $('#btn_eliminar_dispositivo').click( function() {
             $.eliminar_operario();
-            $.mostrar_disositivoes();
+            $.mostrar_dipositivos();
         });
 
         $.validar_formulario_nuevo_dispositivo = function() {
@@ -227,7 +202,7 @@
         }
 
         $.guardar_dispositivo = function () {
-            var controlador = 'cdisositivoes/insertar_disositivo';
+            var controlador = 'cdispositivos/insertar_dispositivo';
             var data = new FormData(document.forms.namedItem('formulario_nuevo_dispositivo'));
             $.ajax({
                 async:false, 
@@ -246,8 +221,8 @@
             });
         }
 
-        $.editar_ruta = function () {
-            var controlador = 'cdisositivoes/editar_dispositivo';
+        $.editar_dispositivo = function () {
+            var controlador = 'cdispositivos/editar_dispositivo';
             var data = new FormData(document.forms.namedItem('formulario_editar_dispositivo'));
             $.ajax({
                 async:false, 
@@ -267,8 +242,8 @@
         }
 
         $.eliminar_operario = function () {
-            var controlador = 'cdisositivoes/eliminar_disositivo';
-            var data = new FormData(document.forms.namedItem('formulario_eliminar_disositivo'));
+            var controlador = 'cdispositivos/eliminar_dispositivo';
+            var data = new FormData(document.forms.namedItem('formulario_eliminar_dispositivo'));
             $.ajax({
                 async:false, 
                 type:'POST',
@@ -280,25 +255,32 @@
                     console.log(msg);
                     if(msg > 0) {
                         console.log('Eliminado correctamente');
-                        $('#modal-eliminardisositivo').modal('toggle');
+                        $('#modal-eliminardispositivo').modal('toggle');
                         $('#modal-editarDispositivo').modal('toggle');
                     }
                 },error: function(jqxhr,textStatus,error){}
             });
         }
 
-        $.mostrar_disositivoes = function() {
+        $.mostrar_dipositivos = function() {
             tabla_dipositivos = $('#tabla_dipositivos').DataTable( {
                 "bDestroy" : true,
-                "ajax": 'cdisositivoes/get_disositivoes',
-                "columns": [{"data":"disositivo_ID"},
-                            {"data":"disositivo_imei"},
-                            {"data":"disositivo_obs"},
-                            {"data":"disositivo_creacion"},
-                            {"data":"disositivo_obs"},
-                            {"data":"disositivo_fecha_hora_creacion"},
-                            {"data":"disositivo_fecha_hora_sync"},
-                            {"data":"disositivo_status"}],
+                "language": {
+            "lengthMenu": "Display _MENU_ records per page",
+            "zeroRecords": "Nothing found - sorry",
+            "info": "Showing page _PAGE_ of _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtered from _MAX_ total registros)"
+        },
+                "ajax": 'cdispositivos/get_dispositivos',
+                "columns": [{"data":"dispositivo_ID"},
+                            {"data":"dispositivo_imei"},
+                            {"data":"dispositivo_obs"},
+                            {"data":"dispositivo_status"},
+                            {"data":"dispositivo_fecha_hora_creacion"},
+                            {"data":"dispositivo_propietario"},
+                            {"data":"dispositivo_funcion"},
+                            {"data":"dispositivo_fecha_hora_sync"}],
                 "columnDefs": [{"targets": [ 0 ],
                                 "visible": false,
                                 "searchable": false}]
@@ -312,7 +294,7 @@
             // } ).draw();
         }
 
-        $.mostrar_disositivoes();
+        $.mostrar_dipositivos();
 
         $('#tabla_dipositivos tbody').on( 'dblclick', 'tr', function () {
             if ( $(this).hasClass('selected') ) {
@@ -324,21 +306,18 @@
             if(typeof tabla_dipositivos.row(this).index() === 'undefined') {
             }else{
                 index = tabla_dipositivos.row(this).index();
-                $('#eliminar_id').val(tabla_dipositivos.row(index).data()['disositivo_ID']);
-                $('#eliminar_imei').val(tabla_dipositivos.row(index).data()['disositivo_imei']);
-                $('#eliminar_creacion').val(tabla_dipositivos.row(index).data()['disositivo_creacion']);
-                $('#eliminar_status').val(tabla_dipositivos.row(index).data()['disositivo_status']);
+                $('#eliminar_id').val(tabla_dipositivos.row(index).data()['dispositivo_ID']);
+                $('#eliminar_imei').val(tabla_dipositivos.row(index).data()['dispositivo_imei']);
+                $('#eliminar_obs').val(tabla_dipositivos.row(index).data()['dispositivo_obs']);
+                 $('#eliminar_status').val(tabla_dipositivos.row(index).data()['dispositivo_status']);
+                $('#eliminar_propietario').val(tabla_dipositivos.row(index).data()['dispositivo_propietario']);
+                $('#eliminar_funcion').val(tabla_dipositivos.row(index).data()['dispositivo_funcion']);
                 
-                $('#editar_id').val(tabla_dipositivos.row(index).data()['disositivo_ID']);
-                $('#editar_imei').val(tabla_dipositivos.row(index).data()['disositivo_imei']);
-                $('#editar_obs').val(tabla_dipositivos.row(index).data()['disositivo_obs']);
-                $('#editar_creacion').val(tabla_dipositivos.row(index).data()['disositivo_creacion']);
-                $('#editar_status').val(tabla_dipositivos.row(index).data()['disositivo_status']);
+                $('#editar_id').val(tabla_dipositivos.row(index).data()['dispositivo_ID']);
+                $('#editar_imei').val(tabla_dipositivos.row(index).data()['dispositivo_imei']);
                 
                 $('#modal-editarDispositivo').modal('toggle');
             }
         });
-
-        $('#example').popover('toggle')
     });
 </script>

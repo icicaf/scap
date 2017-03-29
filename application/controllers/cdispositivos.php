@@ -31,16 +31,16 @@ class Cdispositivos extends CI_Controller {
 		echo json_encode($data);
 	}
 
-	public function insertar_dispositivos()
+	public function insertar_dispositivo()
 	{
 		$data['dispositivo_ID'] = NULL;
 		
 		$data['dispositivo_imei'] = $this->input->post('imei');
 		$data['dispositivo_obs'] = $this->input->post('obs');
-		$data['dispositivo_status'] = $this->input->post('status');
+		$data['dispositivo_status'] = 0;
 		$data['dispositivo_fecha_hora_creacion'] = date('Y-m-d H:i:s');
-		$data['dispositivo_propietario'] = $this->input->post('propietario');
-		$data['dispositivo_funcion'] = $this->input->post('funcion');
+		$data['dispositivo_propietario'] = NULL;
+		$data['dispositivo_funcion'] = NULL;
 		$data['dispositivo_fecha_hora_sync'] = NULL;
 		
 		$resultado = $this->mscap_dispositivos->insert_dispositivo($data);
@@ -53,11 +53,6 @@ class Cdispositivos extends CI_Controller {
 		$id = $this->input->post('editar_id');
 
 		$data['dispositivo_imei'] = $this->input->post('editar_imei');
-		$data['dispositivo_obs'] = $this->input->post('editar_obs');
-		$data['dispositivo_status'] = $this->input->post('editar_status');
-		$data['dispositivo_fecha_hora_creacion'] = date('Y-m-d H:i:s');
-		$data['dispositivo_propietario'] = $this->input->post('editar_propietario');
-		$data['dispositivo_funcion'] = $this->input->post('editar_funcion');
 		
 		$resultado = $this->mscap_dispositivos->update_dispositivo($id,$data);
 
