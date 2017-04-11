@@ -1,16 +1,16 @@
 
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Coperadores extends CI_Controller {
 
 	public function __construct()
     {
         parent::__construct();
-        // Your own constructor code
+
         $this->load->model('mscap_operadores');
         $this->load->helper('url');
     }
+
 	/**
 	 * 
 	 */
@@ -34,15 +34,11 @@ class Coperadores extends CI_Controller {
 	public function insertar_operador()
 	{
 		$data['operador_ID'] = NULL;
-		
 		$data['operador_login'] = $this->input->post('login');
 		$data['operador_pass'] = $this->input->post('pass');
 		$data['operador_nombre'] = $this->input->post('nombre');
-		$data['operador_obs'] = $this->input->post('observacion');
-		$data['operador_status'] = $this->input->post('status');
-
-		$data['operador_fecha_hora_creacion'] = date('Y-m-d H:i:s');
-
+		$data['operador_obs'] = $this->input->post('obs');
+		$data['operador_status'] = 1;
 		$data['operador_fecha_hora_creacion'] = date('Y-m-d H:i:s');
 		
 		$resultado = $this->mscap_operadores->insert_operador($data);
@@ -53,7 +49,7 @@ class Coperadores extends CI_Controller {
 	public function editar_operador()
 	{
 		$id = $this->input->post('editar_id');
-
+		
 		$data['operador_pass'] = $this->input->post('editar_pass');
 		$data['operador_nombre'] = $this->input->post('editar_nombre');
 		$data['operador_obs'] = $this->input->post('editar_obs');
@@ -72,6 +68,4 @@ class Coperadores extends CI_Controller {
 
 		echo $resultado;
 	}
-
-
 }

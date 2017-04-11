@@ -96,32 +96,15 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="#"><a href="#">Inicio</a></li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lecturas <span class="caret"></span></a>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestión de lecturas <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a id="scapMenuPrincipal_administrarLecturas" href="#">Administrar lecturas</a></li>
+                            <li><a id="scapMenuPrincipal_administrarLecturas" href="#">Lecturas</a></li>
                             <li role="separator" class="divider"></li>
-                            <!-- <li><a href="#">Estado de lecturas</a></li> -->
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rutas <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a id="scapMenuPrincipal_administrarRutas" href="#">Administrar rutas</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Operadores <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a id="scapMenuPrincipal_administrarOperadores" href="#">Administrar Operadores</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dispositivos <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a id="scapMenuPrincipal_administrarDispositivos" href="#">Administrar dispositivos</a></li>
+                            <li><a id="scapMenuPrincipal_administrarRutas" href="#">Rutas</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a id="scapMenuPrincipal_administrarOperadores" href="#">Operadores</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a id="scapMenuPrincipal_administrarDispositivos" href="#">Dispositivos</a></li>
                         </ul>
                     </li>
                 </ul>

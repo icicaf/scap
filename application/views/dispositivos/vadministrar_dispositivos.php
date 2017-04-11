@@ -17,35 +17,37 @@
         <div class="tab-content clearfix">
             <div class="tab-pane active" id="1a">
                 <h3>Todos los dispositivos <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#modal-crearDispositivo" data-whatever="@mdo"><span class="glyphicon glyphicon-plus right" aria-hidden="true"></span> Añadir dispositivo</button></h3>                                                
-                <div class="col-lg-11">
-                    <div class="panel-body">
-                        <div class="table-responsive">
-                            <table id="tabla_dipositivos" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Imei</th>
-                                        <th>Observación</th>
-                                        <th>status</th>
-                                        <th>Creación</th>
-                                        <th>Propietario</th>
-                                        <th>Función</th>
-                                        <th>Fecha Sync</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Imei</th>
-                                        <th>Observación</th>
-                                        <th>status</th>
-                                        <th>Creación</th>
-                                        <th>Propietario</th>
-                                        <th>Función</th>
-                                        <th>Fecha Sync</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                <div class="col-lg-12">
+                    <div class="panel panel-warning">
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table style="text-align: center;" id="tabla_dipositivos" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Imei</th>
+                                            <th>Observación</th>
+                                            <th>status</th>
+                                            <th>Creación</th>
+                                            <th>Propietario</th>
+                                            <th>Función</th>
+                                            <th>Fecha Sync</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Imei</th>
+                                            <th>Observación</th>
+                                            <th>status</th>
+                                            <th>Creación</th>
+                                            <th>Propietario</th>
+                                            <th>Función</th>
+                                            <th>Fecha Sync</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -276,6 +278,7 @@
 
         $.mostrar_dipositivos = function() {
             tabla_dipositivos = $('#tabla_dipositivos').DataTable( {
+                "language": { "url" : "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
                 "bDestroy" : true,
                 "language": {
             "lengthMenu": "Display _MENU_ records per page",

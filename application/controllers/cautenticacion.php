@@ -9,6 +9,7 @@ class Cautenticacion extends CI_Controller {
         // Your own constructor code
         $this->load->library('session');
     }
+	
 	/**
 	 * 
 	 */

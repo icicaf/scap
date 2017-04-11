@@ -80,8 +80,8 @@
                         <input type="text" class="form-control" name="obs" >
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Status</label>
-                        <input type="text" class="form-control" name="status" value="1" readonly required>
+                        <label class="control-label">Estado</label>
+                        <input type="text" class="form-control" name="status" value="Activo" readonly required>
                     </div>
                     <button type="submit" id="btn_insertar_operador" class="btn btn-success">Confirmar</button>
                 </form>
@@ -124,7 +124,7 @@
                 <input type="text" class="form-control" name="editar_obs" id="editar_obs" >
             </div>
             <div class="form-group">
-                <label class="control-label">Status</label>
+                <label class="control-label">Estado</label>
                 <select id="" class="form-control" name="editar_estatus" id="editar_estatus" disabled required>
                     <option value="1" selected>Activo</option>
                     <option value="0">Inactivo</option>
@@ -161,7 +161,7 @@
                         <input type="text" class="form-control" name="eliminar_nombre" id="eliminar_nombre" readonly>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Status</label>
+                        <label class="control-label">Estado</label>
                         <input type="text" class="form-control" name="eliminar_status" id="eliminar_status" readonly>
                     </div>
                     <button type="submit" id="btn_eliminar_operador" class="btn btn-danger">Eliminar operador</button>
